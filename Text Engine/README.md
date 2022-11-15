@@ -1,5 +1,3 @@
-These files are the code for the text engine
-
 Current version: 1.0.1
 Last modified: 10:26 pm, 14 November 2022
 ---
