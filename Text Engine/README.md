@@ -1,4 +1,16 @@
-Current version: 1.0.1 | Last modified: 10:26 pm, 14 November 2022
+Current version: 1.0.2 | Last modified: 9:46 am, 15 November 2022
+---
+Version: 1.0.2
+
+Created: 9:46 am, 15 November 2022
+
+Description: Adds documentation for 4 files. Namely, these are the files:
+- EventParams
+- Interpreter
+- Scene
+- TextDisplay
+
+The added documentation is intended to be fully comprehensive. This represents full documentation for all files currently in engine
 ---
 Version: 1.0.1
 
