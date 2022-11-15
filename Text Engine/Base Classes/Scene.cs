@@ -2,15 +2,25 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// This script handles storage and modification of text and input data in a scene format
+// This script should not be attached to any node
+
 public class Scene
 {
-	public List<TextDisplay> textStorage;
-	public List<ButtonInput> inputStorage;
+	public List<TextDisplay> textStorage; // The stored text data
+	public List<ButtonInput> inputStorage; // The stored input data
 	
 	public Scene(){
 		Init();
 	}
 	
+	// Initialization
+	private void Init(){
+		textStorage = new List<TextDisplay>();
+		inputStorage = new List<ButtonInput>();
+	}
+	
+	// Note that the below methods are intended to be used in the DisplayStorage class
 	public void AddText(TextDisplay text){
 		textStorage.Add(text);
 	}
@@ -49,10 +59,5 @@ public class Scene
 		for (int i = inputStorage.Count - 1; i >= 0; i--){
 			inputStorage.Remove(inputStorage[i]);
 		}
-	}
-	
-	private void Init(){
-		textStorage = new List<TextDisplay>();
-		inputStorage = new List<ButtonInput>();
 	}
 }
