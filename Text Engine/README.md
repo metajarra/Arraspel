@@ -11,6 +11,7 @@ Description: Adds documentation for 4 files. Namely, these are the files:
 - TextDisplay
 
 The added documentation is intended to be fully comprehensive. This represents full documentation for all files currently in engine
+
 ---
 Version: 1.0.1
 
