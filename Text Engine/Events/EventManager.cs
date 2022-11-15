@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// This script handles the creation, deletion, and calling of events
+// It should be attached to a node of type Node called "Event Manager"
+
 public class EventManager : Node
 {
 	private Dictionary<string, Action<EventParams>> eventDictionary; // List of known Actions and their names
@@ -15,13 +18,20 @@ public class EventManager : Node
 		instance.Init();
 	}
 	
-	void Init() // Initializes eventDictionary in instance
+	// Initializes eventDictionary in instance
+	void Init() 
 	{
 		if (eventDictionary == null)
 			eventDictionary = new Dictionary<string, Action<EventParams>>();
 	}
 	
-	public static void StartListening(string eventName, Action<EventParams> listener) // Adds a listener to an Action - if the Action does not exist, create and add it to eventDictionary and add the listener
+	// Adds a listener to an Action - if the Action does not exist, create and add it to eventDictionary and add the listener
+	
+	/* Parameters represent the following:
+		eventName: The name of the event to be added
+		listener: Reference to the listener to be added
+	*/
+	public static void StartListening(string eventName, Action<EventParams> listener) 
 	{
 		Action<EventParams> thisEvent; // Reference to named event
 		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent)) // If the named Action exists:
@@ -36,8 +46,14 @@ public class EventManager : Node
 			instance.eventDictionary.Add(eventName, thisEvent);
 		}
 	}
-
-	public static void StopListening(string eventName, Action<EventParams> listener) // Removes listeners from an Action - used when the object listening is destroyed/disabled
+	
+	// Removes listeners from an Action - used when the object listening is destroyed/disabled
+	
+	/* Parameters represent the following:
+		eventName: The name of the event to be removed
+		listener: Reference to the listener to be removed
+	*/
+	public static void StopListening(string eventName, Action<EventParams> listener) 
 	{
 		if (instance != null)
 		{
@@ -49,8 +65,14 @@ public class EventManager : Node
 			}
 		}
 	}
-
-	public static void TriggerEvent(string eventName, EventParams args = default) // Triggers an event with EventParams parameters
+	
+	// Triggers an event with EventParams parameters
+	
+	/* Parameters represent the following:
+		eventName: The name of the event to be triggered
+		args (Optional): The parameters with which the event will be triggered
+	*/
+	public static void TriggerEvent(string eventName, EventParams args = default) 
 	{
 		Action<EventParams> thisEvent; // Reference to named Action
 		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))

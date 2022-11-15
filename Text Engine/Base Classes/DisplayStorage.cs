@@ -2,18 +2,32 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// This script handles the storage and recall of scenes
+// It should not be attached to any node, but remain static
+
 public class DisplayStorage
 {
-	public static List<Scene> sceneStorage;
+	public static List<Scene> sceneStorage; // The list of all scenes
 	
+	// Handles scene addition to list
+	
+	/* Parameters represent the following:
+		scene: The scene to be added to the list
+	*/
 	private static void AddScene(Scene scene) {
 		sceneStorage.Add(scene);
 	}
 	
+	// Handles scene initalization
+	// This must be called in order for the scenes to be loaded
+	// This method is intended to be called from the _Ready() method of Interpreter. Do not call it from anywhere else, do not call it more than once
 	public static void Init(){
+		// Initialization
 		sceneStorage = new List<Scene>();
 		
 		// Scenes to store go below here
+		
+		// Sample scene 1. Demonstrates all primary functions of scene creation and additions
 		Scene DarthPlagueis = new Scene();
 		
 		DarthPlagueis.AddText(new TextDisplay("Did you ever hear the tragedy of Darth Plagueis the Wise?"));
@@ -38,6 +52,7 @@ public class DisplayStorage
 		
 		// ------------------------------
 		
+		// Sample scene 2
 		Scene Narrator = new Scene();
 		
 		Narrator.AddText(new TextDisplay("Ruin has come to our family."));
