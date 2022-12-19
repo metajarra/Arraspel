@@ -6,6 +6,9 @@ public class Unit : Node2D
 	[Export] public string shipName;
 	[Export] public string shipID;
 	
+	private InfoPacket info;
+	private Orders orders;
+	
 	public Unit(){
 		shipName = "default name";
 		shipID = "default id";
@@ -18,6 +21,11 @@ public class Unit : Node2D
 	
 	public void UpdatePosition(){
 		GD.Print($"Position updated. New position is: {GlobalPosition}");
+	}
+	
+	public void ReceiveInfo(InfoPacket info){
+		this.info = info;
+		GD.Print($"Received info. Message: {info.GetInfo()}");
 	}
 	
 	public override bool Equals(object obj){

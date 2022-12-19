@@ -16,7 +16,8 @@ public abstract class Message : Area2D
 	}
 	
 	protected void GetAreaOfEffect(){
-		areaOfEffect = (CircleShape2D)((CollisionShape2D)GetNode("Area of Effect")).Shape;
+		CollisionShape2D t_areaOfEffect = (CollisionShape2D)GetNode("Area of Effect");
+		areaOfEffect = (CircleShape2D)t_areaOfEffect.Shape;
 	}
 	
 	public override void _Process(float delta){

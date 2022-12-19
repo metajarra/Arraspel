@@ -1,22 +1,31 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class CommanderControl : Control
 {
 	private Node2D commanderPosition;
-	PackedScene commsPrefab = GD.Load<PackedScene>("res://Prefabs/Communication.tscn");
+	private TextEdit TEMP_textInput;
+	
+	private PackedScene multiInfoMessagePrefab;
 	
 	public override void _Ready(){
 		commanderPosition = (Node2D)GetTree().Root.GetNode("Main/Commander Position");
+		TEMP_textInput = (TextEdit)GetNode("TextEdit");
+		
+		multiInfoMessagePrefab = GD.Load<PackedScene>("res://Prefabs/Messages/Multi Info Message.tscn");
 	}
 	
 	private void TestSendMessage()
 	{
-		Command command = (Command)commsPrefab.Instance();
-		Unit unit = new Unit("name 1", "123");
+		string messageString = TEMP_textInput.Text;
 		
-		command.SetInfo("test message woo", unit);
+		List<Unit> testUnits = new List<Unit>();
+		testUnits.Add(new Unit("name 1", "123"));
 		
-		commanderPosition.AddChild(command);
+		MultiInfoMessage msg = (MultiInfoMessage)multiInfoMessagePrefab.Instance();
+		commanderPosition.AddChild(msg);
+		msg.Init(messageString, testUnits);
+		
 	}
 }
