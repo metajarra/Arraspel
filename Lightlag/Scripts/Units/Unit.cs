@@ -3,29 +3,20 @@ using System;
 
 public class Unit : Node2D
 {
+	protected InfoPacket info;
+	protected Orders orders;
+	
 	[Export] public string shipName;
 	[Export] public string shipID;
+	[Export] public string shipNavy;
+	[Export] public string shipCaptain;
 	
-	private InfoPacket info;
-	private Orders orders;
-	
-	public Unit(){
-		shipName = "default name";
-		shipID = "default id";
-	}
-	
-	public Unit(string _name, string _id){
-		shipName = _name;
-		shipID = _id;
-	}
-	
-	public void UpdatePosition(){
-		GD.Print($"Position updated. New position is: {GlobalPosition}");
-	}
-	
-	public void ReceiveInfo(InfoPacket info){
+	public virtual void ReceiveInfo(InfoPacket info){
 		this.info = info;
-		GD.Print($"Received info. Message: {info.GetInfo()}");
+	}
+	
+	public virtual void ReceiveOrders(Orders orders){
+		this.orders = orders;
 	}
 	
 	public override bool Equals(object obj){

@@ -9,7 +9,7 @@ public abstract class Message : Area2D
 	protected InfoPacket info;
 	protected Orders orders;
 	
-	private CircleShape2D areaOfEffect;
+	protected CircleShape2D areaOfEffect;
 	
 	public override void _Ready(){
 		GetAreaOfEffect();
@@ -28,5 +28,5 @@ public abstract class Message : Area2D
 		}
 	}
 	
-	protected abstract void OnAreaEntered(Node2D area);
+	protected abstract void OnAreaEntered(Node area);
 }

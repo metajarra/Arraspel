@@ -6,8 +6,20 @@ public abstract class MultiTargetMessage : Message
 {
 	protected List<Unit> intendedTargets;
 	
+	/*
 	public void Init(string message, List<Unit> targets){
 		this.info = new InfoPacket(message);
+		this.intendedTargets = targets;
+	}
+	*/
+	
+	public void Init(InfoPacket message, List<Unit> targets){
+		this.info = message;
+		this.intendedTargets = targets;
+	}
+	
+	public void Init(Orders message, List<Unit> targets){
+		this.orders = message;
 		this.intendedTargets = targets;
 	}
 	

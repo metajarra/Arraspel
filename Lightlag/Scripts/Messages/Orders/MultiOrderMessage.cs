@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MultiInfoMessage : MultiTargetMessage
+public class MultiOrderMessage : MultiTargetMessage
 {
 	[Export] private float TEMP_defaultMaxRange;
 	
@@ -17,11 +17,11 @@ public class MultiInfoMessage : MultiTargetMessage
 		if (unit == null) return;
 		
 		if (intendedTargets.Contains((Unit)area)){
-			((Unit)area).ReceiveInfo(info);
+			((Unit)area).ReceiveOrders(orders);
 		}
 	}
 	
-	public InfoPacket ReadMessage(){
-		return info;
+	public Orders ReadMessage(){
+		return orders;
 	}
 }
