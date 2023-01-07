@@ -76,6 +76,6 @@ public class EventManager : Node
 	{
 		Action<EventParams> thisEvent; // Reference to named Action
 		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
-			thisEvent.Invoke(args); // Invokes action with passed parameters
+			thisEvent?.Invoke(args); // Invokes action with passed parameters
 	}
 }
