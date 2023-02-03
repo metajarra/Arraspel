@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Platforms/OneWay.cs" type="Script" id=1]
+
+[node name="One Way" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Makes a platform one-way, so that the player can jump through it from the bottom. Do not combine with \"Bouncer\" node since this will break it. This should be placed under the \"Platform\" node, and will not work if placed under a \"Collision Detector\" node or other Area2D."
+}

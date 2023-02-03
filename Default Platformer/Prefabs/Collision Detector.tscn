@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Utilities/CollisionDetector.cs" type="Script" id=1]
+
+[node name="Collision Detector" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Manages collision detection and responses to collisions."
+}
+
+[connection signal="body_entered" from="." to="." method="OnCollisionDetectorBodyEntered"]

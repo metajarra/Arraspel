@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player/Movement.cs" type="Script" id=1]
+[ext_resource path="res://Animations/Player/player_idle.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Scripts/Player/InputController.cs" type="Script" id=3]
+[ext_resource path="res://Prefabs/Collision Detector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Player/PlayerAnimationController.cs" type="Script" id=5]
+[ext_resource path="res://Animations/Player/player_ascend.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Animations/Player/player_wall_climb.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Animations/Player/player_wall_hold.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Animations/Player/player_descend.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Animations/Player/player_walk.tres" type="SpriteFrames" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 29.0
+height = 10.0
+
+[node name="Player" type="KinematicBody2D"]
+pause_mode = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "The player's kinematic body. Input is handled by a child node (node \"Input\")."
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "The player's sprite. No scripts touch this so feel free to change/remove it."
+}
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "Player collider for physics interactions."
+}
+
+[node name="Collision Detector" parent="." instance=ExtResource( 4 )]
+CanDie = true
+
+[node name="Collider" type="CollisionShape2D" parent="Collision Detector"]
+shape = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "Player collider for collision detection."
+}
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "Manages player input from InputController script. Remove or disable to control player in some other way."
+}
+
+[node name="Animations" type="Node" parent="."]
+script = ExtResource( 5 )
+IdleAnim = ExtResource( 2 )
+WalkAnim = ExtResource( 10 )
+AscendAnim = ExtResource( 6 )
+DescendAnim = ExtResource( 9 )
+WallHoldAnim = ExtResource( 8 )
+WallClimbAnim = ExtResource( 7 )
+
+[node name="WCR Left" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -32, 0 )
+__meta__ = {
+"_editor_description_": "Raycast for detecting wall collision on the left side."
+}
+
+[node name="WCR Right" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 32, 0 )
+__meta__ = {
+"_editor_description_": "Raycast for detecting wall collision on the right side."
+}

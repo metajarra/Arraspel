@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "l6vOX7wEpI3V+gJ9dweMscQjqyIiUfSCKKWUnGoAw6VbZsiKGytxklKabPNS94/uK3HP/w5PRUvhS+3kTncPBA==",
+  "success": true,
+  "projectFilePath": "C:\\~ gamedev\\~storage\\~godot mono\\Default Platformer\\Default Platformer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\johns\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\johns\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

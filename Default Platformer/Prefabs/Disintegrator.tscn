@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Platforms/Disintegrator.cs" type="Script" id=1]
+
+[node name="Disintegrator" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Disintegrates platform. This relies on collision detection to work, so place it under the \"Collision Detector\" prefab node."
+}
+
+[node name="Disintegrate Timer" type="Timer" parent="."]
+one_shot = true
+__meta__ = {
+"_editor_description_": "Time between step and disintegrate."
+}
+
+[node name="Reintegrate Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+__meta__ = {
+"_editor_description_": "Time between disintegration and reintegration."
+}
+
+[connection signal="timeout" from="Disintegrate Timer" to="." method="OnDTimeout"]
+[connection signal="timeout" from="Reintegrate Timer" to="." method="OnRTimeout"]

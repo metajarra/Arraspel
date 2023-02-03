@@ -1,0 +1,9 @@
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.csproj.AssemblyReference.cache
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.GeneratedMSBuildEditorConfig.editorconfig
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.AssemblyInfoInputs.cache
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.AssemblyInfo.cs
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.csproj.CoreCompileInputs.cache
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\bin\Debug\Default Platformer.dll
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\bin\Debug\Default Platformer.pdb
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.dll
+C:\~ gamedev\~storage\~godot mono\Default Platformer\.mono\temp\obj\Debug\Default Platformer.pdb
